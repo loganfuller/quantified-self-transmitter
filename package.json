@@ -1,0 +1,29 @@
+{
+  "name": "quantified-self-transmitter",
+  "version": "0.0.0",
+  "description": "Transmits quantified self metrics to central server",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/loganfuller/quantified-self-transmitter.git"
+  },
+  "keywords": [
+    "quantified",
+    "self",
+    "metrics",
+    "heartrate"
+  ],
+  "author": "Logan Fuller <fuller.logan@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/loganfuller/quantified-self-transmitter/issues"
+  },
+  "homepage": "https://github.com/loganfuller/quantified-self-transmitter",
+  "dependencies": {
+    "heartrate": "^0.1.3",
+    "restify": "^2.8.2"
+  }
+}
