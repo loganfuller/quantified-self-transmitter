@@ -1,7 +1,7 @@
 var restify = require("restify"),
     BleHR = require("heartrate");
 
-const SAMPLES_TO_AVERAGE = 5;
+const SAMPLES_TO_AVERAGE = 1;
 
 var hrMonitor = new BleHR("cdc3adf858c949a68c91940d91b608ad"),
     client = restify.createJsonClient({
@@ -20,12 +20,14 @@ var bpsBuf = [],
             }
             bps /= bpsBuf.length;
             bpsBuf = [];
-            sendHeartrate(Math.round(bps));
-            console.log(bps);
+            if(bps >= 10) {
+                sendHeartrate(Math.round(bps));
+                console.log(Math.round(bps));
+            }
         }
     },
     sendHeartrate = function(bps) {
-        client.post('/heartrate', {
+        client.post('/api/heartrate', {
             bps: bps,
             bodyLocation: "Chest"
         }, function(err) {
